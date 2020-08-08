@@ -9,13 +9,14 @@ import { map } from 'rxjs/operators';
 export class HackernewsApiService {
   baseUrl: string;
   constructor(private http: HttpClient) {
-    this.baseUrl = 'https://hacker-news.firebaseio.com/v0';
+    this.baseUrl = 'https://node-hnapi.herokuapp.com';
   }
-  fetchStories(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/topstories.json`);
+  fetchStories(storyType: string, page: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${storyType}?page=${page}`);
   }
-  fetchStoryId(id): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/item/${id}.json`);
-  }
+  // }
+  // fetchStoryId(id): Observable<any> {
+  //   return this.http.get<any>(`${this.baseUrl}/item/${id}.json`);
+  // }
 
 }

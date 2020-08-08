@@ -7,10 +7,10 @@ import { HackernewsApiService } from '../hackernews-api.service';
   styleUrls: ['./stories.component.scss']
 } )
 export class StoriesComponent implements OnInit {
-  items: number[];
+  items;
   constructor(private hackernewsApi: HackernewsApiService ) {
     // this.items = Array( 30 );
-    this.hackernewsApi.fetchStories().subscribe(stories => this.items = stories, error  => console.log(error));
+    this.hackernewsApi.fetchStories('news', 1).subscribe(stories => this.items = stories, error  => console.log(error));
   }
 
   ngOnInit() {
