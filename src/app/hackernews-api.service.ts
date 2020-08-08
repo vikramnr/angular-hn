@@ -15,8 +15,12 @@ export class HackernewsApiService {
     return this.http.get<any>(`${this.baseUrl}/${storyType}?page=${page}`);
   }
   // }
-  // fetchStoryId(id): Observable<any> {
-  //   return this.http.get<any>(`${this.baseUrl}/item/${id}.json`);
-  // }
+  fetchStoryComments(id): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/item/${id}`);
+  }
+
+  fetchUserDetails(id): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/user/${id}`);
+  }
 
 }
